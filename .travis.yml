@@ -1,0 +1,31 @@
+language: ruby
+cache:
+- bundler
+install:
+- bundle install
+rvm:
+- 2.3.8
+- 2.4.5
+- 2.5.3
+notifications:
+  email:
+    recipients:
+    - sensu-plugin@sensu-plugins.io
+    on_success: change
+    on_failure: always
+script:
+- bundle exec rake default
+- gem build sensu-plugins-rocket-chat.gemspec
+- gem install sensu-plugins-rocket-chat-*.gem
+deploy:
+  provider: rubygems
+  api_key:
+    secure: lxycFbUJLQHTzbKtD2OtFYQPsCDUYFc35XjYSbfVt2Mkcqa3Zqz6jKvnNpxSxraC8075BJi3bkFW6xxl9ZULBxybWPO0gHVo2qWQatyuPP+tp1mLJ6G85PGOPEojEuRKoNrekMo+C1WyBles65AjKNVgtK5kL+/LWLudVn6XMJSJaCdWKtHFq7w54P019o77pszemSPCEpmqkhhUd7ip/nYM/+6pXvMmUS4V8d9F15FGPOE0gq3BzkIYVFRwt+qQGpxLIRu/xBtk0ynkQJGu4QlYuq8TUHWlol7AyUJpf87d0UfrsVvytkRaVOj0S4SK4/HuUZOlz39S7fPtTn1w9QGpf1VE8V4edy7ocv7eLW5MscbWqsy5nirRF9Yfm72tz9JvjfvkU5arqwFGvSALdez/YhdnSu1vc+j7/d0do9s2AjY0xC05T0fqi8f2zTVBLVUipbF16TizlwoRSxGujFkKSZRdzV4M0Czl1/NHTvRkPLvnEpLJaBDSOI4ZCSv3/Pdf5nO3mAyzgc/J5X+6i3qfcGlWNZdAsbn6bdD9e7IPh/8N4YgNen4SmyMvdfoQrIYG7S7PwkMmPVc0k+nA7kSw27ttCkZBwOh4eXVYVN79HElFRfdfQmy2Syv9HJa/YqYAXLXh7akVLzRoqu5v2/A0W7fDN2Ae3M2z6mjECtA=
+  gem: sensu-plugins-rocket-chat
+  on:
+    tags: true
+    all_branches: true
+    rvm: 2.3.8
+    rvm: 2.4.5
+    rvm: 2.5.3
+    repo: sensu-plugins/sensu-plugins-rocket-chat
