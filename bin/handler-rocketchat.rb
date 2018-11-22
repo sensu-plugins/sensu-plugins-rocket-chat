@@ -132,19 +132,15 @@ class RocketChatHandler < Sensu::Handler
   end
 
   def client_name
-    escape_html @event['client']['name']
+    @event['client']['name']
   end
 
   def check_name
-    escape_html @event['check']['name']
+    @event['check']['name']
   end
 
   def output
-    escape_html @event['check']['output']
-  end
-
-  def escape_html(string)
-    CGI.escapeHTML(string)
+    @event['check']['output']
   end
 
   def build_message
