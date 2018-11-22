@@ -140,7 +140,7 @@ class RocketChatHandler < Sensu::Handler
   end
 
   def output
-    @event['check']['output']
+    @event['check']['output'].strip
   end
 
   def build_message
@@ -163,7 +163,7 @@ class RocketChatHandler < Sensu::Handler
       '**Host:** <%= client_name %>',
       '**Check:** <%= check_name %>',
       '**Status:** <%= status %> <%= status_icon %>',
-      '**Output:** `<%= output %>`'
+      '**Output:** <%= output %>'
     ].join("\n")
   end
 
