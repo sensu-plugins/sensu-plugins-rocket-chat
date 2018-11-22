@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows [this format](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md).
 
 ## [Unreleased]
+
+## 1.0.2 - 2018-11-22
 ### Changed
 - Don't escape HTML, since RocketChat doesn't support HTML formatting.
 - Don't format the output as code, since newlines are not supported. If there
