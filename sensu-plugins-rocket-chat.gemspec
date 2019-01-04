@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.version                = SensuPluginsRocketChat::Version::VER_STRING
 
   s.add_runtime_dependency 'rocketchat', '~> 0.1.16'
-  s.add_runtime_dependency 'sensu-plugin', '~> 2.7'
+  s.add_runtime_dependency 'sensu-plugin', '>= 2.7', '< 4.0'
 
   s.add_development_dependency 'bundler',                   '~> 1.7'
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
